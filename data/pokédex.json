@@ -1,0 +1,138 @@
+[
+  {
+    "id": "#0001",
+    "name": {
+      "english": "Bulbasaur",
+      "japanese": "フシギダネ"
+    },
+    "forms": [
+      "Normal"
+    ],
+    "species": "Seed Pokémon",
+    "description": "Bulbasaur (Japanese: フシギダネ Fushigidane) is a dual-type Grass/Poison Pokémon introduced in Generation I.",
+    "generation": "Generation I",
+    "profile": {
+      "ability": [
+        "Overgrow",
+        "Chlorophyll"
+      ],
+      "gender": "87.5% male, 12.5% female",
+      "catchRate": "11.9%",
+      "egg": "Monster"
+    }
+  },
+  {
+    "id": "#0002",
+    "name": {
+      "english": "Ivysaur",
+      "japanese": "フシギソウ"
+    },
+    "forms": [
+      "Normal"
+    ],
+    "species": "Seed Pokémon",
+    "description": "Ivysaur (Japanese: フシギソウ Fushigisou) is a dual-type Grass/Poison Pokémon introduced in Generation I.",
+    "generation": "Generation I",
+    "profile": {
+      "ability": [
+        "Overgrow",
+        "Chlorophyll"
+      ],
+      "gender": "87.5% male, 12.5% female",
+      "catchRate": "11.9%",
+      "egg": "Monster"
+    }
+  },
+  {
+    "id": "#0003",
+    "name": {
+      "english": "Venusaur",
+      "japanese": "フシギバナ"
+    },
+    "forms": [
+      "Normal",
+      "Mega",
+      "Gigantamax"
+    ],
+    "species": "Seed Pokémon",
+    "description": "Venusaur (Japanese: フシギバナ Fushigibana) is a dual-type Grass/Poison Pokémon introduced in Generation I.",
+    "generation": "Generation I",
+    "profile": {
+      "ability": [
+        "Thick Fat"
+      ],
+      "gender": "87.5% male, 12.5% female",
+      "catchRate": "11.9%",
+      "egg": "Monster"
+    }
+  },
+  {
+    "id": "#0004",
+    "name": {
+      "english": "Charmander",
+      "japanese": "ヒトカゲ"
+    },
+    "forms": [
+      "Normal"
+    ],
+    "species": "Lizard Pokémon",
+    "description": "Charmander (Japanese: ヒトカゲ Hitokage) is a Fire-type Pokémon introduced in Generation I.",
+    "generation": "Generation I",
+    "profile": {
+      "ability": [
+        "Blaze",
+        "Solar Power"
+      ],
+      "gender": "87.5% male, 12.5% female",
+      "catchRate": "11.9%",
+      "egg": "Monster"
+    }
+  },
+  {
+    "id": "#0005",
+    "name": {
+      "english": "Charmeleon",
+      "japanese": "リザード"
+    },
+    "forms": [
+      "Normal"
+    ],
+    "species": "Flame Pokémon",
+    "description": "Charmeleon (Japanese: リザード Lizardo) is a Fire-type Pokémon introduced in Generation I.",
+    "generation": "Generation I",
+    "profile": {
+      "ability": [
+        "Blaze",
+        "Solar Power"
+      ],
+      "gender": "87.5% male, 12.5% female",
+      "catchRate": "11.9%",
+      "egg": "Monster"
+    }
+  },
+  {
+    "id": "#0006",
+    "name": {
+      "english": "Charizard",
+      "japanese": "リザードン"
+    },
+    "forms": [
+      "Normal",
+      "Mega X",
+      "Mega Y",
+      "Gigantamax"
+    ],
+    "species": "Flame Pokémon",
+    "description": "Charizard (Japanese: リザードン Lizardon) is a dual-type Fire/Flying Pokémon introduced in Generation I.",
+    "generation": "Generation I",
+    "profile": {
+      "ability": [
+        "Tough Claws",
+        "Drought"
+      ],
+      "gender": "87.5% male, 12.5% female",
+      "catchRate": "11.9%",
+      "egg": "Monster"
+    }
+  }
+]
