@@ -78,7 +78,7 @@ def scrape_pokemon_info(pokemon_url):
                 forms_elements = row.find(
                     'td').find_all('small')
                 if forms_elements:
-                    pokemon_info['forms'] = ["Unset"]
+                    pokemon_info['forms'] = ["Normal"]
                     for form_element in forms_elements:
                         if form_element.text.strip() and form_element.text.strip() != name_element.text.strip():
                             form = form_element.text.strip().replace(

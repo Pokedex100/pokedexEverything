@@ -25,3 +25,5 @@ npm run server
 - [ ] string queries
 - [ ] favicon
 - [ ] forms, types, stats, hp, atk, def, height, weight, IMAGES
+- [ ] https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
+- [ ] Create github labels, issues, templates
