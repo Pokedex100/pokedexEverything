@@ -23,59 +23,26 @@ def scrape_pokemon_info(pokemon_url):
         tables = content_area.find_all('table', {'class': 'roundy'})
 
         # Extract relevant information
-        for table in tables:
-            for row in table.find_all('tr'):
-                ability_elements = row.find_all(
-                    'a', {'title': re.compile('.+\(Ability\)')})
-                if ability_elements:
-                    ability = []
-                    for ability_element in ability_elements:
-                        if (ability_element.text.strip() != "Cacophony"):
-                            ability.append(
-                                ability_element.text.strip())
-                    pokemon_info['profile'] = {'ability': ability}
+        for table_number, table in enumerate(tables): # Added a numbered iteration
+            # for row_number, row in enumerate(table.find_all('tr')): # Added a numbered iteration
 
-                # Egg Group
-                egg_element = row.find(
-                    'a', {'title': re.compile('.+\(Egg Group\)')})
-                if egg_element:
-                    pokemon_info['profile'].update(
-                        {'egg': egg_element.text.strip()})
-
-                # Category:Pokémon with a gender ratio
-                genderElement = row.find('a', {'title': re.compile(
-                    'Category:Pokémon with a gender ratio.+')})
-                if genderElement:
-                    pokemon_info['profile'].update(
-                        {'gender': genderElement.text.strip()})
-
-                # Catch Rate: When an ordinary Poké Ball
-                catchElement = row.find('span', {'title': re.compile(
-                    'When an ordinary Poké Ball.+')})
-                if catchElement:
-                    pokemon_info['profile'].update(
-                        {'catchRate': catchElement.text.strip()})
-
+            if table_number == 0:
                 # Look for the <span> inside an anchor tag with title "List of Pokémon by National Pokédex number"
-                id_element = row.find(
+                id_element = table.find(
                     'a', {'title': 'List of Pokémon by National Pokédex number'})
                 if id_element:
                     pokemon_info['id'] = id_element.text.strip()
-                else:
-                    continue
 
                 # Extract other information based on the structure
-                name_element = row.find(
+                name_element = table.find(
                     'td', {'class': 'roundy'}).find('big').find('b')
                 if name_element:
                     pokemon_info['name'] = {
                         'english': name_element.text.strip(),
-                        'japanese': row.find('span', {'lang': 'ja'}).text.strip()
+                        'japanese': table.find('span', {'lang': 'ja'}).text.strip()
                     }
-                else:
-                    continue
 
-                forms_elements = row.find(
+                forms_elements = table.find(
                     'td').find_all('small')
                 if forms_elements:
                     pokemon_info['forms'] = ["Normal"]
@@ -87,25 +54,143 @@ def scrape_pokemon_info(pokemon_url):
                             if form not in pokemon_info['forms']:
                                 pokemon_info['forms'].append((form))
 
-                # Look for Pokémon category
-                category_element = row.find(
-                    'a', {'title': 'Pokémon category'})
-                if category_element:
-                    pokemon_info['species'] = category_element.text.strip()
-                else:
-                    continue
+                # Initiate 'formData' with 'names'
+                pokemon_info['formData'] = []
+                for form in pokemon_info['forms']:
+                    pokemon_info['formData'].append({'form':form})
 
-                description = row.find_next('p')
-                if description:
-                    pokemon_info['description'] = description.text.strip()
+                # Store forms in a temporary variable as well excluding text manipulation in order to use it as keys for data extraction against 'form'
+                temp_forms = []
+                temp_form_elements = table.find_all('tr')[3].find_all('a', {'class':'image'})
 
-                 # Generation
-                gen_element = description.find(
-                    'a', {'title': re.compile('Generation*')})
-                if gen_element:
-                    pokemon_info['generation'] = gen_element.text.strip()
+                # print(table.find_all( 'tr')[3].prettify())
+                if temp_form_elements:
+                    count = 0
+                    for temp_form_element_index, temp_form_element in enumerate(temp_form_elements):
+                        if not temp_form_element.find_parent('tr').has_attr('style'):
+                            if(temp_forms.count(temp_form_element.get('title', '')) < 1):
+                                temp_forms.append(temp_form_element.get('title', ''))
+                                pokemon_info['formData'][count]['formName'] = temp_form_element.get('title','')
+                                count+=1
+                    print(temp_forms)
+
+                # Extracting 'types' of pokemon against 'form'
+                type_element = table.find('a', {'title': re.compile('Type')}).find_parent('tr')
+                types = []
+                for td in type_element.find_all('td', style=re.compile('display: none;+')):
+                    td.extract()
+                if (len(temp_forms) > 1):
+                    for form_index, form in enumerate(temp_forms):
+                        form_type_element = type_element.find("small", string=form)
+                        single_forms = []
+                        if form_type_element:
+                            form_types = form_type_element.parent.find_all('b')
+                            for single_form in form_types:
+                                single_forms.append(single_form.text.strip())
+                            for index, iter in enumerate(single_forms):
+                                if iter == 'Unknown' and index > 0:
+                                    single_forms.pop(index)
+                            types.append(single_forms)
+                        else:
+                            form_types = type_element.find_all('td')[1].find_all('b')
+                            for single_form in form_types:
+                                single_forms.append(single_form.text.strip())
+                            types.append(single_forms)
+                        pokemon_info['formData'][form_index]['type'] = single_forms
                 else:
-                    continue
+                    form_section = type_element.find_all('b')
+                    for iter in form_section:
+                        parent_a = iter.find_parent('a')
+                        if parent_a and parent_a.has_attr('class'):
+                            continue
+                        types.append(iter.text)
+                    types.pop(0)
+                    pokemon_info['formData'][0]['type'] = types
+                print(types)
+
+                # Extracting the height of Pokemon against 'form'
+                height_element = table.find('a', {'title': 'List of Pokémon by height'}).find_parent('td')
+                default_pokemon_height = ''
+                for form_index, form in enumerate(temp_forms):
+                    form_height_element_identifier = height_element.find("small", string = form)
+                    if form_height_element_identifier:
+                        form_height_element = form_height_element_identifier.find_parent('tr').find_previous_sibling('tr')
+                        form_height = form_height_element.find_all('td')[1].text.strip()
+                        if ( form_height != '0 m'):
+                            default_pokemon_height = form_height
+                        if ( form_height == '0 m'):
+                            form_height = default_pokemon_height
+                        pokemon_info['formData'][form_index]['height'] = form_height
+                    else:
+                        pokemon_info['formData'][form_index]['height'] = default_pokemon_height
+
+                # Extracting the weight of Pokemon against 'form'
+                weight_element = table.find('a', {'title': 'Weight'}).find_parent('td')
+                default_pokemon_weight = ''
+                for form_index, form in enumerate(temp_forms):
+                    form_weight_element_identifier = weight_element.find("small", string = form)
+                    if form_weight_element_identifier:
+                        form_weight_element = form_weight_element_identifier.find_parent('tr').find_previous_sibling('tr')
+                        form_weight = form_weight_element.find_all('td')[1].text.strip()
+                        if (form_weight != '0 kg'):
+                            default_pokemon_weight = form_weight
+                        else:
+                            form_weight = default_pokemon_weight
+                        pokemon_info['formData'][form_index]['weight'] = form_weight
+                    else:
+                        pokemon_info['formData'][form_index]['weight'] = default_pokemon_weight
+                    
+
+            # Look for Pokémon category
+            category_element = table.find(
+                'a', {'title': 'Pokémon category'})
+            if category_element:
+                pokemon_info['species'] = category_element.text.strip()
+            else:
+                continue
+
+            description = table.find_next('p')
+            if description:
+                pokemon_info['description'] = description.text.strip()
+
+            # Generation
+            gen_element = description.find(
+                'a', {'title': re.compile('Generation*')})
+            if gen_element:
+                pokemon_info['generation'] = gen_element.text.strip()
+            else:
+                continue
+
+            ability_elements = table.find_all(
+                'a', {'title': re.compile('.+\\(Ability\\)')})
+            if ability_elements:
+                ability = []
+                for ability_element in ability_elements:
+                    if (ability_element.text.strip() != "Cacophony"):
+                        ability.append(
+                            ability_element.text.strip())
+                pokemon_info['profile'] = {'ability': ability}
+
+            # Egg Group
+            egg_element = table.find(
+                'a', {'title': re.compile('.+\\(Egg Group\\)')})
+            if egg_element:
+                pokemon_info['profile'].update(
+                    {'egg': egg_element.text.strip()})
+
+            # Category:Pokémon with a gender ratio
+            genderElement = table.find('a', {'title': re.compile(
+                'Category:Pokémon with a gender ratio.+')})
+            if genderElement:
+                pokemon_info['profile'].update(
+                    {'gender': genderElement.text.strip()})
+
+            # Catch Rate: When an ordinary Poké Ball
+            catchElement = table.find('span', {'title': re.compile(
+                'When an ordinary Poké Ball.+')})
+            if catchElement:
+                pokemon_info['profile'].update(
+                    {'catchRate': catchElement.text.strip()})
 
         return pokemon_info
 
@@ -136,7 +221,7 @@ pokemon_base_url = 'https://bulbapedia.bulbagarden.net/wiki/{}_(Pokémon)'
 pokemon_list = []
 
 # Loop through the Pokémon names
-for pokemon_name in pokemon_names[:6]:
+for pokemon_name in pokemon_names[:1025]:
     pokemon_url = pokemon_base_url.format(pokemon_name)
 
     # Scrape information for the current Pokémon
