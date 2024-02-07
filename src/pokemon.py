@@ -62,14 +62,16 @@ def scrape_pokemon_info(pokemon_url):
                 # Store forms in a temporary variable as well excluding text manipulation in order to use it as keys for data extraction against 'form'
                 temp_forms = []
                 temp_form_elements = table.find_all('tr')[3].find_all('a', {'class':'image'})
+
                 # print(table.find_all( 'tr')[3].prettify())
                 if temp_form_elements:
                     count = 0
                     for temp_form_element_index, temp_form_element in enumerate(temp_form_elements):
-                        if(temp_forms.count(temp_form_element.get('title', '')) < 1):
-                            temp_forms.append(temp_form_element.get('title', ''))
-                            pokemon_info['formData'][count]['formName'] = temp_form_element.get('title','')
-                            count+=1
+                        if not temp_form_element.find_parent('tr').has_attr('style'):
+                            if(temp_forms.count(temp_form_element.get('title', '')) < 1):
+                                temp_forms.append(temp_form_element.get('title', ''))
+                                pokemon_info['formData'][count]['formName'] = temp_form_element.get('title','')
+                                count+=1
                     print(temp_forms)
 
                 # Extracting 'types' of pokemon against 'form'
@@ -219,7 +221,7 @@ pokemon_base_url = 'https://bulbapedia.bulbagarden.net/wiki/{}_(Pokémon)'
 pokemon_list = []
 
 # Loop through the Pokémon names
-for pokemon_name in pokemon_names[22:30]:
+for pokemon_name in pokemon_names[:1025]:
     pokemon_url = pokemon_base_url.format(pokemon_name)
 
     # Scrape information for the current Pokémon
