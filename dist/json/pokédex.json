@@ -1,9 +1,9 @@
 [
   {
-    "id": "#0001",
+    "id": "#0023",
     "name": {
-      "english": "Bulbasaur",
-      "japanese": "フシギダネ"
+      "english": "Ekans",
+      "japanese": "アーボ"
     },
     "forms": [
       "Normal"
@@ -11,32 +11,33 @@
     "formData": [
       {
         "form": "Normal",
-        "formName": "Bulbasaur",
+        "formName": "Ekans",
         "type": [
-          "Grass",
           "Poison"
         ],
-        "height": "0.7 m"
+        "height": "2.0 m",
+        "weight": "6.9 kg"
       }
     ],
-    "species": "Seed Pokémon",
-    "description": "Bulbasaur (Japanese: フシギダネ Fushigidane) is a dual-type Grass/Poison Pokémon introduced in Generation I.",
+    "species": "Snake Pokémon",
+    "description": "Ekans (Japanese: アーボ Arbo) is a Poison-type Pokémon introduced in Generation I.",
     "generation": "Generation I",
     "profile": {
       "ability": [
-        "Overgrow",
-        "Chlorophyll"
+        "Intimidate",
+        "Shed Skin",
+        "Unnerve"
       ],
-      "egg": "Monster",
-      "gender": "87.5% male, 12.5% female",
-      "catchRate": "11.9%"
+      "egg": "Field",
+      "gender": "50% male, 50% female",
+      "catchRate": "43.9%"
     }
   },
   {
-    "id": "#0002",
+    "id": "#0024",
     "name": {
-      "english": "Ivysaur",
-      "japanese": "フシギソウ"
+      "english": "Arbok",
+      "japanese": "アーボック"
     },
     "forms": [
       "Normal"
@@ -44,208 +45,269 @@
     "formData": [
       {
         "form": "Normal",
-        "formName": "Ivysaur",
+        "formName": "Arbok",
         "type": [
-          "Grass",
           "Poison"
         ],
-        "height": "1.0 m"
+        "height": "3.5 m",
+        "weight": "65.0 kg"
       }
     ],
-    "species": "Seed Pokémon",
-    "description": "Ivysaur (Japanese: フシギソウ Fushigisou) is a dual-type Grass/Poison Pokémon introduced in Generation I.",
+    "species": "Cobra Pokémon",
+    "description": "Arbok (Japanese: アーボック Arbok) is a Poison-type Pokémon introduced in Generation I.",
     "generation": "Generation I",
     "profile": {
       "ability": [
-        "Overgrow",
-        "Chlorophyll"
+        "Intimidate",
+        "Shed Skin",
+        "Unnerve"
       ],
-      "egg": "Monster",
-      "gender": "87.5% male, 12.5% female",
-      "catchRate": "11.9%"
+      "egg": "Field",
+      "gender": "50% male, 50% female",
+      "catchRate": "20.1%"
     }
   },
   {
-    "id": "#0003",
+    "id": "#0025",
     "name": {
-      "english": "Venusaur",
-      "japanese": "フシギバナ"
+      "english": "Pikachu",
+      "japanese": "ピカチュウ"
     },
     "forms": [
       "Normal",
-      "Mega",
+      "Cosplay",
+      "in a cap",
+      "Partner",
       "Gigantamax"
     ],
     "formData": [
       {
         "form": "Normal",
-        "formName": "Venusaur",
+        "formName": "Pikachu",
         "type": [
-          "Grass",
-          "Poison"
+          "Electric"
         ],
-        "height": "2.0 m"
+        "height": "0.4 m",
+        "weight": "6.0 kg"
       },
       {
-        "form": "Mega",
-        "formName": "Mega Venusaur",
+        "form": "Cosplay",
+        "formName": "Cosplay Pikachu",
         "type": [
-          "Grass",
-          "Poison"
+          "Electric"
         ],
-        "height": "2.4 m"
+        "height": "0.4 m",
+        "weight": "6.0 kg"
+      },
+      {
+        "form": "in a cap",
+        "formName": "Pikachu in a cap",
+        "type": [
+          "Electric"
+        ],
+        "height": "0.4 m",
+        "weight": "6.0 kg"
+      },
+      {
+        "form": "Partner",
+        "formName": "Partner Pikachu",
+        "type": [
+          "Electric"
+        ],
+        "height": "21.0+ m",
+        "weight": "??? kg"
       },
       {
         "form": "Gigantamax",
-        "formName": "Gigantamax Venusaur",
+        "formName": "Gigantamax Pikachu",
         "type": [
-          "Grass",
-          "Poison"
+          "Electric"
         ],
-        "height": "24.0+ m"
+        "height": "21.0+ m",
+        "weight": "??? kg"
       }
     ],
-    "species": "Seed Pokémon",
-    "description": "Venusaur (Japanese: フシギバナ Fushigibana) is a dual-type Grass/Poison Pokémon introduced in Generation I.",
+    "species": "Mouse Pokémon",
+    "description": "Pikachu (Japanese: ピカチュウ Pikachu) is an Electric-type Pokémon introduced in Generation I.",
     "generation": "Generation I",
     "profile": {
       "ability": [
-        "Overgrow",
-        "Chlorophyll",
-        "Thick Fat"
+        "Static",
+        "Lightning Rod"
       ],
-      "egg": "Monster",
-      "gender": "87.5% male, 12.5% female",
-      "catchRate": "11.9%"
+      "egg": "Field",
+      "gender": "50% male, 50% female",
+      "catchRate": "35.2%"
     }
   },
   {
-    "id": "#0004",
+    "id": "#0026",
     "name": {
-      "english": "Charmander",
-      "japanese": "ヒトカゲ"
-    },
-    "forms": [
-      "Normal"
-    ],
-    "formData": [
-      {
-        "form": "Normal",
-        "formName": "Charmander",
-        "type": [
-          "Fire"
-        ],
-        "height": "0.6 m"
-      }
-    ],
-    "species": "Lizard Pokémon",
-    "description": "Charmander (Japanese: ヒトカゲ Hitokage) is a Fire-type Pokémon introduced in Generation I.",
-    "generation": "Generation I",
-    "profile": {
-      "ability": [
-        "Blaze",
-        "Solar Power"
-      ],
-      "egg": "Monster",
-      "gender": "87.5% male, 12.5% female",
-      "catchRate": "11.9%"
-    }
-  },
-  {
-    "id": "#0005",
-    "name": {
-      "english": "Charmeleon",
-      "japanese": "リザード"
-    },
-    "forms": [
-      "Normal"
-    ],
-    "formData": [
-      {
-        "form": "Normal",
-        "formName": "Charmeleon",
-        "type": [
-          "Fire"
-        ],
-        "height": "1.1 m"
-      }
-    ],
-    "species": "Flame Pokémon",
-    "description": "Charmeleon (Japanese: リザード Lizardo) is a Fire-type Pokémon introduced in Generation I.",
-    "generation": "Generation I",
-    "profile": {
-      "ability": [
-        "Blaze",
-        "Solar Power"
-      ],
-      "egg": "Monster",
-      "gender": "87.5% male, 12.5% female",
-      "catchRate": "11.9%"
-    }
-  },
-  {
-    "id": "#0006",
-    "name": {
-      "english": "Charizard",
-      "japanese": "リザードン"
+      "english": "Raichu",
+      "japanese": "ライチュウ"
     },
     "forms": [
       "Normal",
-      "Mega X",
-      "Mega Y",
-      "Gigantamax"
+      "Alolan"
     ],
     "formData": [
       {
         "form": "Normal",
-        "formName": "Charizard",
+        "formName": "Raichu",
         "type": [
-          "Fire",
-          "Flying"
+          "Electric"
         ],
-        "height": "1.7 m"
+        "height": "0.8 m",
+        "weight": "30.0 kg"
       },
       {
-        "form": "Mega X",
-        "formName": "Mega Charizard X",
+        "form": "Alolan",
+        "formName": "Alolan Raichu",
         "type": [
-          "Fire",
-          "Dragon"
+          "Electric",
+          "Psychic"
         ],
-        "height": "1.7 m"
-      },
-      {
-        "form": "Mega Y",
-        "formName": "Mega Charizard Y",
-        "type": [
-          "Fire",
-          "Flying"
-        ],
-        "height": "1.7 m"
-      },
-      {
-        "form": "Gigantamax",
-        "formName": "Gigantamax Charizard",
-        "type": [
-          "Fire",
-          "Flying"
-        ],
-        "height": "28.0+ m"
+        "height": "0.7 m",
+        "weight": "21.0 kg"
       }
     ],
-    "species": "Flame Pokémon",
-    "description": "Charizard (Japanese: リザードン Lizardon) is a dual-type Fire/Flying Pokémon introduced in Generation I.",
+    "species": "Mouse Pokémon",
+    "description": "Raichu (Japanese: ライチュウ Raichu) is an Electric-type Pokémon introduced in Generation I.",
     "generation": "Generation I",
     "profile": {
       "ability": [
-        "Blaze",
-        "Solar Power",
-        "Tough Claws",
-        "Drought"
+        "Static",
+        "Surge Surfer",
+        "Lightning Rod"
       ],
-      "egg": "Monster",
-      "gender": "87.5% male, 12.5% female",
-      "catchRate": "11.9%"
+      "egg": "Field",
+      "gender": "50% male, 50% female",
+      "catchRate": "17.5%"
+    }
+  },
+  {
+    "id": "#0027",
+    "name": {
+      "english": "Sandshrew",
+      "japanese": "サンド"
+    },
+    "forms": [
+      "Normal",
+      "Alolan"
+    ],
+    "formData": [
+      {
+        "form": "Normal",
+        "formName": "Sandshrew",
+        "type": [
+          "Ground"
+        ],
+        "height": "0.6 m",
+        "weight": "12.0 kg"
+      },
+      {
+        "form": "Alolan",
+        "formName": "Alolan Sandshrew",
+        "type": [
+          "Ice",
+          "Steel"
+        ],
+        "height": "0.7 m",
+        "weight": "40.0 kg"
+      }
+    ],
+    "species": "Mouse Pokémon",
+    "description": "Sandshrew (Japanese: サンド Sand) is a Ground-type Pokémon introduced in Generation I.",
+    "generation": "Generation I",
+    "profile": {
+      "ability": [
+        "Sand Veil",
+        "Snow Cloak",
+        "Sand Rush",
+        "Slush Rush"
+      ],
+      "egg": "Field",
+      "gender": "50% male, 50% female",
+      "catchRate": "43.9%"
+    }
+  },
+  {
+    "id": "#0028",
+    "name": {
+      "english": "Sandslash",
+      "japanese": "サンドパン"
+    },
+    "forms": [
+      "Normal",
+      "Alolan"
+    ],
+    "formData": [
+      {
+        "form": "Normal",
+        "formName": "Sandslash",
+        "type": [
+          "Ground"
+        ],
+        "height": "1.0 m",
+        "weight": "29.5 kg"
+      },
+      {
+        "form": "Alolan",
+        "formName": "Alolan Sandslash",
+        "type": [
+          "Ice",
+          "Steel"
+        ],
+        "height": "1.2 m",
+        "weight": "55.0 kg"
+      }
+    ],
+    "species": "Mouse Pokémon",
+    "description": "Sandslash (Japanese: サンドパン Sandpan) is a Ground-type Pokémon introduced in Generation I.",
+    "generation": "Generation I",
+    "profile": {
+      "ability": [
+        "Sand Veil",
+        "Snow Cloak",
+        "Sand Rush",
+        "Slush Rush"
+      ],
+      "egg": "Field",
+      "gender": "50% male, 50% female",
+      "catchRate": "20.1%"
+    }
+  },
+  {
+    "id": "#0030",
+    "name": {
+      "english": "Nidorina",
+      "japanese": "ニドリーナ"
+    },
+    "forms": [
+      "Normal"
+    ],
+    "formData": [
+      {
+        "form": "Normal",
+        "formName": "Nidorina",
+        "type": [
+          "Poison"
+        ],
+        "height": "0.8 m",
+        "weight": "20.0 kg"
+      }
+    ],
+    "species": "Poison Pin Pokémon",
+    "description": "Nidorina (Japanese: ニドリーナ  Nidorina) is a Poison-type Pokémon introduced in Generation I.",
+    "generation": "Generation I",
+    "profile": {
+      "ability": [
+        "Poison Point",
+        "Rivalry",
+        "Hustle"
+      ],
+      "egg": "No Eggs Discovered",
+      "catchRate": "24.9%"
     }
   }
 ]

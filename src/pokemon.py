@@ -106,23 +106,37 @@ def scrape_pokemon_info(pokemon_url):
                     pokemon_info['formData'][0]['type'] = types
                 print(types)
 
-                # Extracting the height of Pokemons
+                # Extracting the height of Pokemon against 'form'
                 height_element = table.find('a', {'title': 'List of Pokémon by height'}).find_parent('td')
-                for tr in height_element.find_all('tr', style=re.compile('display: none;+')):
-                    tr.extract()
                 default_pokemon_height = ''
                 for form_index, form in enumerate(temp_forms):
-                    form_height_element_identifier = height_element.find("small", string=form)
+                    form_height_element_identifier = height_element.find("small", string = form)
                     if form_height_element_identifier:
                         form_height_element = form_height_element_identifier.find_parent('tr').find_previous_sibling('tr')
                         form_height = form_height_element.find_all('td')[1].text.strip()
-                        if( form_height != '0 m'):
+                        if ( form_height != '0 m'):
                             default_pokemon_height = form_height
-                        if( form_height == '0 m'):
+                        if ( form_height == '0 m'):
                             form_height = default_pokemon_height
                         pokemon_info['formData'][form_index]['height'] = form_height
                     else:
                         pokemon_info['formData'][form_index]['height'] = default_pokemon_height
+
+                # Extracting the weight of Pokemon against 'form'
+                weight_element = table.find('a', {'title': 'Weight'}).find_parent('td')
+                default_pokemon_weight = ''
+                for form_index, form in enumerate(temp_forms):
+                    form_weight_element_identifier = weight_element.find("small", string = form)
+                    if form_weight_element_identifier:
+                        form_weight_element = form_weight_element_identifier.find_parent('tr').find_previous_sibling('tr')
+                        form_weight = form_weight_element.find_all('td')[1].text.strip()
+                        if (form_weight != '0 kg'):
+                            default_pokemon_weight = form_weight
+                        else:
+                            form_weight = default_pokemon_weight
+                        pokemon_info['formData'][form_index]['weight'] = form_weight
+                    else:
+                        pokemon_info['formData'][form_index]['weight'] = default_pokemon_weight
                     
 
             # Look for Pokémon category
@@ -205,7 +219,7 @@ pokemon_base_url = 'https://bulbapedia.bulbagarden.net/wiki/{}_(Pokémon)'
 pokemon_list = []
 
 # Loop through the Pokémon names
-for pokemon_name in pokemon_names[:6]:
+for pokemon_name in pokemon_names[22:30]:
     pokemon_url = pokemon_base_url.format(pokemon_name)
 
     # Scrape information for the current Pokémon
