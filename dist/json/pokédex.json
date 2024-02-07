@@ -15,7 +15,8 @@
         "type": [
           "Grass",
           "Poison"
-        ]
+        ],
+        "height": "0.7 m"
       }
     ],
     "species": "Seed Pokémon",
@@ -47,7 +48,8 @@
         "type": [
           "Grass",
           "Poison"
-        ]
+        ],
+        "height": "1.0 m"
       }
     ],
     "species": "Seed Pokémon",
@@ -81,7 +83,8 @@
         "type": [
           "Grass",
           "Poison"
-        ]
+        ],
+        "height": "2.0 m"
       },
       {
         "form": "Mega",
@@ -89,7 +92,8 @@
         "type": [
           "Grass",
           "Poison"
-        ]
+        ],
+        "height": "2.4 m"
       },
       {
         "form": "Gigantamax",
@@ -97,7 +101,8 @@
         "type": [
           "Grass",
           "Poison"
-        ]
+        ],
+        "height": "24.0+ m"
       }
     ],
     "species": "Seed Pokémon",
@@ -129,7 +134,8 @@
         "formName": "Charmander",
         "type": [
           "Fire"
-        ]
+        ],
+        "height": "0.6 m"
       }
     ],
     "species": "Lizard Pokémon",
@@ -160,7 +166,8 @@
         "formName": "Charmeleon",
         "type": [
           "Fire"
-        ]
+        ],
+        "height": "1.1 m"
       }
     ],
     "species": "Flame Pokémon",
@@ -195,7 +202,8 @@
         "type": [
           "Fire",
           "Flying"
-        ]
+        ],
+        "height": "1.7 m"
       },
       {
         "form": "Mega X",
@@ -203,7 +211,8 @@
         "type": [
           "Fire",
           "Dragon"
-        ]
+        ],
+        "height": "1.7 m"
       },
       {
         "form": "Mega Y",
@@ -211,7 +220,8 @@
         "type": [
           "Fire",
           "Flying"
-        ]
+        ],
+        "height": "1.7 m"
       },
       {
         "form": "Gigantamax",
@@ -219,7 +229,8 @@
         "type": [
           "Fire",
           "Flying"
-        ]
+        ],
+        "height": "28.0+ m"
       }
     ],
     "species": "Flame Pokémon",

@@ -24,6 +24,8 @@ def scrape_pokemon_info(pokemon_url):
 
         # Extract relevant information
         for table_number, table in enumerate(tables): # Added a numbered iteration
+            # for row_number, row in enumerate(table.find_all('tr')): # Added a numbered iteration
+
             if table_number == 0:
                 # Look for the <span> inside an anchor tag with title "List of Pokémon by National Pokédex number"
                 id_element = table.find(
@@ -60,11 +62,14 @@ def scrape_pokemon_info(pokemon_url):
                 # Store forms in a temporary variable as well excluding text manipulation in order to use it as keys for data extraction against 'form'
                 temp_forms = []
                 temp_form_elements = table.find_all('tr')[3].find_all('a', {'class':'image'})
+                # print(table.find_all( 'tr')[3].prettify())
                 if temp_form_elements:
+                    count = 0
                     for temp_form_element_index, temp_form_element in enumerate(temp_form_elements):
                         if(temp_forms.count(temp_form_element.get('title', '')) < 1):
                             temp_forms.append(temp_form_element.get('title', ''))
-                            pokemon_info['formData'][temp_form_element_index]['formName'] = temp_form_element.get('title','')
+                            pokemon_info['formData'][count]['formName'] = temp_form_element.get('title','')
+                            count+=1
                     print(temp_forms)
 
                 # Extracting 'types' of pokemon against 'form'
@@ -100,6 +105,25 @@ def scrape_pokemon_info(pokemon_url):
                     types.pop(0)
                     pokemon_info['formData'][0]['type'] = types
                 print(types)
+
+                # Extracting the height of Pokemons
+                height_element = table.find('a', {'title': 'List of Pokémon by height'}).find_parent('td')
+                for tr in height_element.find_all('tr', style=re.compile('display: none;+')):
+                    tr.extract()
+                default_pokemon_height = ''
+                for form_index, form in enumerate(temp_forms):
+                    form_height_element_identifier = height_element.find("small", string=form)
+                    if form_height_element_identifier:
+                        form_height_element = form_height_element_identifier.find_parent('tr').find_previous_sibling('tr')
+                        form_height = form_height_element.find_all('td')[1].text.strip()
+                        if( form_height != '0 m'):
+                            default_pokemon_height = form_height
+                        if( form_height == '0 m'):
+                            form_height = default_pokemon_height
+                        pokemon_info['formData'][form_index]['height'] = form_height
+                    else:
+                        pokemon_info['formData'][form_index]['height'] = default_pokemon_height
+                    
 
             # Look for Pokémon category
             category_element = table.find(
