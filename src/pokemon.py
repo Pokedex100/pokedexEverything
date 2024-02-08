@@ -166,9 +166,10 @@ def scrape_pokemon_info(pokemon_url):
             if ability_elements:
                 ability = []
                 for ability_element in ability_elements:
-                    if (ability_element.text.strip() != "Cacophony"):
-                        ability.append(
-                            ability_element.text.strip())
+                    if (ability.count(ability_element.text.strip()) < 1):
+                        if (ability_element.text.strip() != "Cacophony"):
+                            ability.append(
+                                ability_element.text.strip())
                 pokemon_info['profile'] = {'ability': ability}
 
             # Egg Group
@@ -221,7 +222,7 @@ pokemon_base_url = 'https://bulbapedia.bulbagarden.net/wiki/{}_(Pokémon)'
 pokemon_list = []
 
 # Loop through the Pokémon names
-for pokemon_name in pokemon_names[:1025]:
+for pokemon_name in pokemon_names[:6]:
     pokemon_url = pokemon_base_url.format(pokemon_name)
 
     # Scrape information for the current Pokémon
