@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import re
+import string
 
 
 def scrape_pokemon_info(pokemon_url):
@@ -104,7 +105,8 @@ def scrape_pokemon_info(pokemon_url):
                         if parent_a and parent_a.has_attr('class'):
                             continue
                         types.append(iter.text)
-                    types.pop(0)
+                    if types:
+                        types.pop(0)
                     pokemon_info['formData'][0]['type'] = types
                 print(types)
 
@@ -198,12 +200,14 @@ def scrape_pokemon_info(pokemon_url):
     else:
         print(
             f"Failed to retrieve the page. Status code: {response.status_code}")
+        with open("../data/pokemonFailedToFetch.html", "a", encoding="utf-8") as f:
+            f.write(pokemon_url + '\n')
         return None
 
 
 def get_pokemon_names_from_json(json_file):
     # Read the JSON file
-    with open(json_file, 'r') as file:
+    with open(json_file, 'r', encoding='utf-8') as file:
         data = json.load(file)
 
     # Extract Pokémon names from the JSON data
@@ -221,9 +225,30 @@ pokemon_base_url = 'https://bulbapedia.bulbagarden.net/wiki/{}_(Pokémon)'
 # Create a list to store information for the Pokémons
 pokemon_list = []
 
+# Capitalize the letter after hyphen
+def capitalize_after_hyphen(s):
+    if (s.count('-') > 0):
+            parts = s.split('-')
+            capitalized_parts = [string.capwords(part) for part in parts[:-1]]
+            last_part = ''
+            if not parts[-1].endswith('o'):
+                last_part = string.capwords(parts[-1])
+            elif len(parts[-1]) > 1:
+                last_part = string.capwords(parts[-1])
+            else:
+                last_part = parts[-1].lower()
+            capitalized_parts.append(last_part)
+            return '-'.join(capitalized_parts)
+    return s
+
 # Loop through the Pokémon names
-for pokemon_name in pokemon_names[:6]:
+for pokemon_name in pokemon_names[:1025]:
+    pokemon_name = string.capwords(pokemon_name)
+    pokemon_name = capitalize_after_hyphen(pokemon_name)
+    print(pokemon_name)
+    pokemon_name = pokemon_name.replace(' ', '_')
     pokemon_url = pokemon_base_url.format(pokemon_name)
+    print(pokemon_url)
 
     # Scrape information for the current Pokémon
     pokemon_info = scrape_pokemon_info(pokemon_url)
