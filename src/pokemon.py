@@ -46,7 +46,7 @@ def scrape_pokemon_info(pokemon_url):
                 forms_elements = table.find(
                     'td').find_all('small')
                 if forms_elements:
-                    pokemon_info['forms'] = ["Normal"]
+                    pokemon_info['forms'] = ["Unset"]
                     for form_element in forms_elements:
                         if form_element.text.strip() and form_element.text.strip() != name_element.text.strip():
                             form = form_element.text.strip().replace(
@@ -200,7 +200,7 @@ def scrape_pokemon_info(pokemon_url):
     else:
         print(
             f"Failed to retrieve the page. Status code: {response.status_code}")
-        with open("../data/pokemonFailedToFetch.html", "a", encoding="utf-8") as f:
+        with open("../data/pokemonFailedToFetch.log", "a", encoding="utf-8") as f:
             f.write(pokemon_url + '\n')
         return None
 
