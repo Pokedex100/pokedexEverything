@@ -81,7 +81,7 @@ def scrape_pokemon_info(pokemon_url):
 
                 # Extracting 'types' of pokemon against 'form'
                 type_element = table.find(
-                    'a', {'title': re.compile('Type')}).find_parent('tr')
+                    'a', {'title': re.compile('Type')}).find_parent('td')
                 types = []
                 for td in type_element.find_all('td', style=re.compile('display: none;+')):
                     td.extract()
@@ -100,7 +100,7 @@ def scrape_pokemon_info(pokemon_url):
                             types.append(single_forms)
                         else:
                             form_types = type_element.find_all(
-                                'td')[1].find_all('b')
+                                'table')[1].find_all('b')
                             for single_form in form_types:
                                 single_forms.append(single_form.text.strip())
                             types.append(single_forms)
@@ -259,7 +259,7 @@ def capitalize_after_hyphen(s):
 
 
 # Loop through the Pokémon names
-for pokemon_name in pokemon_names[:1025]:
+for pokemon_name in pokemon_names[743:748]:
     pokemon_name = string.capwords(pokemon_name)
     pokemon_name = capitalize_after_hyphen(pokemon_name)
     print(pokemon_name)
