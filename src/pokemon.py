@@ -24,7 +24,8 @@ def scrape_pokemon_info(pokemon_url):
         tables = content_area.find_all('table', {'class': 'roundy'})
 
         # Extract relevant information
-        for table_number, table in enumerate(tables): # Added a numbered iteration
+        # Added a numbered iteration
+        for table_number, table in enumerate(tables):
             # for row_number, row in enumerate(table.find_all('tr')): # Added a numbered iteration
 
             if table_number == 0:
@@ -58,31 +59,36 @@ def scrape_pokemon_info(pokemon_url):
                 # Initiate 'formData' with 'names'
                 pokemon_info['formData'] = []
                 for form in pokemon_info['forms']:
-                    pokemon_info['formData'].append({'form':form})
+                    pokemon_info['formData'].append({'form': form})
 
                 # Store forms in a temporary variable as well excluding text manipulation in order to use it as keys for data extraction against 'form'
                 temp_forms = []
-                temp_form_elements = table.find_all('tr')[3].find_all('a', {'class':'image'})
+                temp_form_elements = table.find_all(
+                    'tr')[3].find_all('a', {'class': 'image'})
 
                 # print(table.find_all( 'tr')[3].prettify())
                 if temp_form_elements:
                     count = 0
                     for temp_form_element_index, temp_form_element in enumerate(temp_form_elements):
                         if not temp_form_element.find_parent('tr').has_attr('style'):
-                            if(temp_forms.count(temp_form_element.get('title', '')) < 1):
-                                temp_forms.append(temp_form_element.get('title', ''))
-                                pokemon_info['formData'][count]['formName'] = temp_form_element.get('title','')
-                                count+=1
+                            if (temp_forms.count(temp_form_element.get('title', '')) < 1):
+                                temp_forms.append(
+                                    temp_form_element.get('title', ''))
+                                pokemon_info['formData'][count]['formName'] = temp_form_element.get(
+                                    'title', '')
+                                count += 1
                     print(temp_forms)
 
                 # Extracting 'types' of pokemon against 'form'
-                type_element = table.find('a', {'title': re.compile('Type')}).find_parent('tr')
+                type_element = table.find(
+                    'a', {'title': re.compile('Type')}).find_parent('tr')
                 types = []
                 for td in type_element.find_all('td', style=re.compile('display: none;+')):
                     td.extract()
                 if (len(temp_forms) > 1):
                     for form_index, form in enumerate(temp_forms):
-                        form_type_element = type_element.find("small", string=form)
+                        form_type_element = type_element.find(
+                            "small", string=form)
                         single_forms = []
                         if form_type_element:
                             form_types = form_type_element.parent.find_all('b')
@@ -93,7 +99,8 @@ def scrape_pokemon_info(pokemon_url):
                                     single_forms.pop(index)
                             types.append(single_forms)
                         else:
-                            form_types = type_element.find_all('td')[1].find_all('b')
+                            form_types = type_element.find_all(
+                                'td')[1].find_all('b')
                             for single_form in form_types:
                                 single_forms.append(single_form.text.strip())
                             types.append(single_forms)
@@ -111,29 +118,37 @@ def scrape_pokemon_info(pokemon_url):
                 print(types)
 
                 # Extracting the height of Pokemon against 'form'
-                height_element = table.find('a', {'title': 'List of Pokémon by height'}).find_parent('td')
+                height_element = table.find(
+                    'a', {'title': 'List of Pokémon by height'}).find_parent('td')
                 default_pokemon_height = ''
                 for form_index, form in enumerate(temp_forms):
-                    form_height_element_identifier = height_element.find("small", string = form)
+                    form_height_element_identifier = height_element.find(
+                        "small", string=form)
                     if form_height_element_identifier:
-                        form_height_element = form_height_element_identifier.find_parent('tr').find_previous_sibling('tr')
-                        form_height = form_height_element.find_all('td')[1].text.strip()
-                        if ( form_height != '0 m'):
+                        form_height_element = form_height_element_identifier.find_parent(
+                            'tr').find_previous_sibling('tr')
+                        form_height = form_height_element.find_all('td')[
+                            1].text.strip()
+                        if (form_height != '0 m'):
                             default_pokemon_height = form_height
-                        if ( form_height == '0 m'):
+                        if (form_height == '0 m'):
                             form_height = default_pokemon_height
                         pokemon_info['formData'][form_index]['height'] = form_height
                     else:
                         pokemon_info['formData'][form_index]['height'] = default_pokemon_height
 
                 # Extracting the weight of Pokemon against 'form'
-                weight_element = table.find('a', {'title': 'Weight'}).find_parent('td')
+                weight_element = table.find(
+                    'a', {'title': 'Weight'}).find_parent('td')
                 default_pokemon_weight = ''
                 for form_index, form in enumerate(temp_forms):
-                    form_weight_element_identifier = weight_element.find("small", string = form)
+                    form_weight_element_identifier = weight_element.find(
+                        "small", string=form)
                     if form_weight_element_identifier:
-                        form_weight_element = form_weight_element_identifier.find_parent('tr').find_previous_sibling('tr')
-                        form_weight = form_weight_element.find_all('td')[1].text.strip()
+                        form_weight_element = form_weight_element_identifier.find_parent(
+                            'tr').find_previous_sibling('tr')
+                        form_weight = form_weight_element.find_all('td')[
+                            1].text.strip()
                         if (form_weight != '0 kg'):
                             default_pokemon_weight = form_weight
                         else:
@@ -141,7 +156,6 @@ def scrape_pokemon_info(pokemon_url):
                         pokemon_info['formData'][form_index]['weight'] = form_weight
                     else:
                         pokemon_info['formData'][form_index]['weight'] = default_pokemon_weight
-                    
 
             # Look for Pokémon category
             category_element = table.find(
@@ -226,20 +240,23 @@ pokemon_base_url = 'https://bulbapedia.bulbagarden.net/wiki/{}_(Pokémon)'
 pokemon_list = []
 
 # Capitalize the letter after hyphen
+
+
 def capitalize_after_hyphen(s):
     if (s.count('-') > 0):
-            parts = s.split('-')
-            capitalized_parts = [string.capwords(part) for part in parts[:-1]]
-            last_part = ''
-            if not parts[-1].endswith('o'):
-                last_part = string.capwords(parts[-1])
-            elif len(parts[-1]) > 1:
-                last_part = string.capwords(parts[-1])
-            else:
-                last_part = parts[-1].lower()
-            capitalized_parts.append(last_part)
-            return '-'.join(capitalized_parts)
+        parts = s.split('-')
+        capitalized_parts = [string.capwords(part) for part in parts[:-1]]
+        last_part = ''
+        if not parts[-1].endswith('o'):
+            last_part = string.capwords(parts[-1])
+        elif len(parts[-1]) > 1:
+            last_part = string.capwords(parts[-1])
+        else:
+            last_part = parts[-1].lower()
+        capitalized_parts.append(last_part)
+        return '-'.join(capitalized_parts)
     return s
+
 
 # Loop through the Pokémon names
 for pokemon_name in pokemon_names[:1025]:
