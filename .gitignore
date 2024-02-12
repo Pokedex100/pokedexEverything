@@ -34,3 +34,6 @@ yarn-error.log
 *.njsproj
 *.sln
 *.sw?
+
+# Debug: failed to fetch file
+data/pokemonFailedToFetch.log
