@@ -1,214 +1,161 @@
 [
   {
-    "id": "#0744",
+    "id": "#0385",
     "name": {
-      "english": "Rockruff",
-      "japanese": "イワンコ"
+      "english": "Jirachi",
+      "japanese": "ジラーチ"
     },
     "forms": [
-      "Unset"
+      "Default"
     ],
     "formData": [
       {
-        "form": "Unset",
-        "formName": "Rockruff",
+        "form": "Default",
+        "formName": "Jirachi",
         "type": [
-          "Rock"
+          "Steel",
+          "Psychic"
         ],
-        "height": "0.5 m",
-        "weight": "9.2 kg"
+        "height": "0.3 m",
+        "weight": "1.1 kg"
       }
     ],
-    "species": "Puppy Pokémon",
-    "description": "Rockruff (Japanese: イワンコ Iwanko) is a Rock-type Pokémon introduced in Generation VII.",
-    "generation": "Generation VII",
+    "species": "Wish Pokémon",
+    "description": "Jirachi (Japanese: ジラーチ Jirachi) is a dual-type Steel/Psychic Mythical Pokémon introduced in Generation III.",
+    "generation": "Generation III",
     "profile": {
       "ability": [
-        "Keen Eye",
-        "Vital Spirit",
-        "Steadfast",
-        "Own Tempo"
+        "Serene Grace"
       ],
-      "egg": "Field",
-      "gender": "50% male, 50% female",
-      "catchRate": "35.2%"
+      "egg": "No Eggs Discovered",
+      "catchRate": "1.6%"
     }
   },
   {
-    "id": "#0745",
+    "id": "#0386",
     "name": {
-      "english": "Lycanroc",
-      "japanese": "ルガルガン"
+      "english": "Deoxys",
+      "japanese": "デオキシス"
     },
     "forms": [
-      "Unset",
-      "Midday Form",
-      "Midnight Form",
-      "Dusk Form"
+      "Normal",
+      "Attack",
+      "Defense",
+      "Speed"
     ],
     "formData": [
       {
-        "form": "Unset",
-        "formName": "Midday Form",
+        "form": "Normal",
+        "formName": "Normal Forme",
         "type": [
-          "Rock"
+          "Psychic"
         ],
-        "height": "0.8 m",
-        "weight": "25.0 kg"
+        "height": "1.7 m",
+        "weight": "60.8 kg"
       },
       {
-        "form": "Midday Form",
-        "formName": "Midnight Form",
+        "form": "Attack",
+        "formName": "Attack Forme",
         "type": [
-          "Rock"
+          "Psychic"
         ],
-        "height": "1.1 m",
-        "weight": "25.0 kg"
+        "height": "1.7 m",
+        "weight": "60.8 kg"
       },
       {
-        "form": "Midnight Form",
-        "formName": "Dusk Form",
+        "form": "Defense",
+        "formName": "Defense Forme",
         "type": [
-          "Rock"
+          "Psychic"
         ],
-        "height": "0.8 m",
-        "weight": "25.0 kg"
+        "height": "1.7 m",
+        "weight": "60.8 kg"
       },
       {
-        "form": "Dusk Form"
+        "form": "Speed",
+        "formName": "Speed Forme",
+        "type": [
+          "Psychic"
+        ],
+        "height": "1.7 m",
+        "weight": "60.8 kg"
       }
     ],
-    "species": "Wolf Pokémon",
-    "description": "Lycanroc (Japanese: ルガルガン Lugarugan) is a Rock-type Pokémon introduced in Generation VII.",
-    "generation": "Generation VII",
+    "species": "DNA Pokémon",
+    "description": "Deoxys (Japanese: デオキシス Deoxys) is a Psychic-type Mythical Pokémon introduced in Generation III.",
+    "generation": "Generation III",
     "profile": {
       "ability": [
-        "Keen Eye",
-        "Sand Rush",
-        "Vital Spirit",
-        "Steadfast",
-        "No Guard",
-        "Tough Claws"
+        "Pressure"
       ],
-      "egg": "Field",
-      "gender": "50% male, 50% female",
-      "catchRate": "20.1%"
+      "egg": "No Eggs Discovered",
+      "catchRate": "1.6%"
     }
   },
   {
-    "id": "#0746",
+    "id": "#0387",
     "name": {
-      "english": "Wishiwashi",
-      "japanese": "ヨワシ"
+      "english": "Turtwig",
+      "japanese": "ナエトル"
     },
     "forms": [
-      "Unset",
-      "Solo Form",
-      "School Form"
+      "Default"
     ],
     "formData": [
       {
-        "form": "Unset",
-        "formName": "Solo Form",
+        "form": "Default",
+        "formName": "Turtwig",
         "type": [
-          "Water"
-        ],
-        "height": "0.2 m",
-        "weight": "0.3 kg"
-      },
-      {
-        "form": "Solo Form",
-        "formName": "School Form",
-        "type": [
-          "Water"
-        ],
-        "height": "8.2 m",
-        "weight": "78.6 kg"
-      },
-      {
-        "form": "School Form"
-      }
-    ],
-    "species": "Small Fry Pokémon",
-    "description": "Wishiwashi (Japanese: ヨワシ Yowashi) is a Water-type Pokémon introduced in Generation VII.",
-    "generation": "Generation VII",
-    "profile": {
-      "ability": [
-        "Schooling"
-      ],
-      "egg": "Water 2",
-      "gender": "50% male, 50% female",
-      "catchRate": "14.8%"
-    }
-  },
-  {
-    "id": "#0747",
-    "name": {
-      "english": "Mareanie",
-      "japanese": "ヒドイデ"
-    },
-    "forms": [
-      "Unset"
-    ],
-    "formData": [
-      {
-        "form": "Unset",
-        "formName": "Mareanie",
-        "type": [
-          "Poison",
-          "Water"
+          "Grass"
         ],
         "height": "0.4 m",
-        "weight": "8.0 kg"
+        "weight": "10.2 kg"
       }
     ],
-    "species": "Brutal Star Pokémon",
-    "description": "Mareanie (Japanese: ヒドイデ Hidoide) is a dual-type Poison/Water Pokémon introduced in Generation VII.",
-    "generation": "Generation VII",
+    "species": "Tiny Leaf Pokémon",
+    "description": "Turtwig (Japanese: ナエトル Naetle) is a Grass-type Pokémon introduced in Generation IV.",
+    "generation": "Generation IV",
     "profile": {
       "ability": [
-        "Merciless",
-        "Limber",
-        "Regenerator"
+        "Overgrow",
+        "Shell Armor"
       ],
-      "egg": "Water 1",
-      "gender": "50% male, 50% female",
-      "catchRate": "35.2%"
+      "egg": "Monster",
+      "gender": "87.5% male, 12.5% female",
+      "catchRate": "11.9%"
     }
   },
   {
-    "id": "#0748",
+    "id": "#0388",
     "name": {
-      "english": "Toxapex",
-      "japanese": "ドヒドイデ"
+      "english": "Grotle",
+      "japanese": "ハヤシガメ"
     },
     "forms": [
-      "Unset"
+      "Default"
     ],
     "formData": [
       {
-        "form": "Unset",
-        "formName": "Toxapex",
+        "form": "Default",
+        "formName": "Grotle",
         "type": [
-          "Poison",
-          "Water"
+          "Grass"
         ],
-        "height": "0.7 m",
-        "weight": "14.5 kg"
+        "height": "1.1 m",
+        "weight": "97.0 kg"
       }
     ],
-    "species": "Brutal Star Pokémon",
-    "description": "Toxapex (Japanese: ドヒドイデ Dohidoide) is a dual-type Poison/Water Pokémon introduced in Generation VII.",
-    "generation": "Generation VII",
+    "species": "Grove Pokémon",
+    "description": "Grotle (Japanese: ハヤシガメ Hayashigame) is a Grass-type Pokémon introduced in Generation IV.",
+    "generation": "Generation IV",
     "profile": {
       "ability": [
-        "Merciless",
-        "Limber",
-        "Regenerator"
+        "Overgrow",
+        "Shell Armor"
       ],
-      "egg": "Water 1",
-      "gender": "50% male, 50% female",
-      "catchRate": "17.5%"
+      "egg": "Monster",
+      "gender": "87.5% male, 12.5% female",
+      "catchRate": "11.9%"
     }
   }
 ]

@@ -47,14 +47,20 @@ def scrape_pokemon_info(pokemon_url):
                 forms_elements = table.find(
                     'td').find_all('small')
                 if forms_elements:
-                    pokemon_info['forms'] = ["Unset"]
+                    pokemon_info['forms'] = []
                     for form_element in forms_elements:
-                        if form_element.text.strip() and form_element.text.strip() != name_element.text.strip():
-                            form = form_element.text.strip().replace(
-                                name_element.text.strip(), "").replace("  ", " ").strip()
-                            form = re.sub(' +', ' ', form)
-                            if form not in pokemon_info['forms']:
-                                pokemon_info['forms'].append((form))
+                        if form_element.text.strip():
+                            if form_element.text.strip() == name_element.text.strip():
+                                pokemon_info['forms'].append("Default")
+                            else:
+                                form = form_element.text.strip().replace(
+                                    name_element.text.strip(), "").replace("  ", " ").strip()
+                                form = re.sub(' +', ' ', form)
+                                form = re.sub(r'\b Forme\b', '', form)
+                                if form not in pokemon_info['forms']:
+                                    pokemon_info['forms'].append((form))
+                    if not pokemon_info['forms']:
+                        pokemon_info['forms'].append("Default")
 
                 # Initiate 'formData' with 'names'
                 pokemon_info['formData'] = []
@@ -259,7 +265,7 @@ def capitalize_after_hyphen(s):
 
 
 # Loop through the Pokémon names
-for pokemon_name in pokemon_names[743:748]:
+for pokemon_name in pokemon_names[384:388]:
     pokemon_name = string.capwords(pokemon_name)
     pokemon_name = capitalize_after_hyphen(pokemon_name)
     print(pokemon_name)
