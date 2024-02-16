@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 import json
 import re
 import string
-from extras import typeWeakness
 
 
 def scrape_pokemon_info(pokemon_url):
@@ -48,20 +47,14 @@ def scrape_pokemon_info(pokemon_url):
                 forms_elements = table.find(
                     'td').find_all('small')
                 if forms_elements:
-                    pokemon_info['forms'] = []
+                    pokemon_info['forms'] = ["Unset"]
                     for form_element in forms_elements:
-                        if form_element.text.strip():
-                            if form_element.text.strip() == name_element.text.strip():
-                                pokemon_info['forms'].append("Default")
-                            else:
-                                form = form_element.text.strip().replace(
-                                    name_element.text.strip(), "").replace("  ", " ").strip()
-                                form = re.sub(' +', ' ', form)
-                                form = re.sub(r'\b Forme\b', '', form)
-                                if form not in pokemon_info['forms']:
-                                    pokemon_info['forms'].append((form))
-                    if not pokemon_info['forms']:
-                        pokemon_info['forms'].append("Default")
+                        if form_element.text.strip() and form_element.text.strip() != name_element.text.strip():
+                            form = form_element.text.strip().replace(
+                                name_element.text.strip(), "").replace("  ", " ").strip()
+                            form = re.sub(' +', ' ', form)
+                            if form not in pokemon_info['forms']:
+                                pokemon_info['forms'].append((form))
 
                 # Initiate 'formData' with 'names'
                 pokemon_info['formData'] = []
@@ -88,7 +81,7 @@ def scrape_pokemon_info(pokemon_url):
 
                 # Extracting 'types' of pokemon against 'form'
                 type_element = table.find(
-                    'a', {'title': re.compile('Type')}).find_parent('td')
+                    'a', {'title': re.compile('Type')}).find_parent('tr')
                 types = []
                 for td in type_element.find_all('td', style=re.compile('display: none;+')):
                     td.extract()
@@ -107,12 +100,11 @@ def scrape_pokemon_info(pokemon_url):
                             types.append(single_forms)
                         else:
                             form_types = type_element.find_all(
-                                'table')[1].find_all('b')
+                                'td')[1].find_all('b')
                             for single_form in form_types:
                                 single_forms.append(single_form.text.strip())
                             types.append(single_forms)
                         pokemon_info['formData'][form_index]['type'] = single_forms
-                        pokemon_info['formData'][form_index]['weaknessTypes'] = typeWeakness.getWeaknessTypes(*single_forms)
                 else:
                     form_section = type_element.find_all('b')
                     for iter in form_section:
@@ -123,7 +115,6 @@ def scrape_pokemon_info(pokemon_url):
                     if types:
                         types.pop(0)
                     pokemon_info['formData'][0]['type'] = types
-                    pokemon_info['formData'][0]['weaknessTypes'] = typeWeakness.getWeaknessTypes(*types)
                 print(types)
 
                 # Extracting the height of Pokemon against 'form'
@@ -268,7 +259,7 @@ def capitalize_after_hyphen(s):
 
 
 # Loop through the Pokémon names
-for pokemon_name in pokemon_names[384:388]:
+for pokemon_name in pokemon_names[:1025]:
     pokemon_name = string.capwords(pokemon_name)
     pokemon_name = capitalize_after_hyphen(pokemon_name)
     print(pokemon_name)
