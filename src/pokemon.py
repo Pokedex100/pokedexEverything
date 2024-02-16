@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import json
 import re
 import string
+from extras import typeWeakness
 
 
 def scrape_pokemon_info(pokemon_url):
@@ -111,6 +112,7 @@ def scrape_pokemon_info(pokemon_url):
                                 single_forms.append(single_form.text.strip())
                             types.append(single_forms)
                         pokemon_info['formData'][form_index]['type'] = single_forms
+                        pokemon_info['formData'][form_index]['weaknessTypes'] = typeWeakness.getWeaknessTypes(*single_forms)
                 else:
                     form_section = type_element.find_all('b')
                     for iter in form_section:
@@ -121,6 +123,7 @@ def scrape_pokemon_info(pokemon_url):
                     if types:
                         types.pop(0)
                     pokemon_info['formData'][0]['type'] = types
+                    pokemon_info['formData'][0]['weaknessTypes'] = typeWeakness.getWeaknessTypes(*types)
                 print(types)
 
                 # Extracting the height of Pokemon against 'form'

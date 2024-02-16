@@ -16,6 +16,7 @@
           "Steel",
           "Psychic"
         ],
+        "weaknessTypes": [],
         "height": "0.3 m",
         "weight": "1.1 kg"
       }
@@ -50,6 +51,7 @@
         "type": [
           "Psychic"
         ],
+        "weaknessTypes": [],
         "height": "1.7 m",
         "weight": "60.8 kg"
       },
@@ -59,6 +61,7 @@
         "type": [
           "Psychic"
         ],
+        "weaknessTypes": [],
         "height": "1.7 m",
         "weight": "60.8 kg"
       },
@@ -68,6 +71,7 @@
         "type": [
           "Psychic"
         ],
+        "weaknessTypes": [],
         "height": "1.7 m",
         "weight": "60.8 kg"
       },
@@ -77,6 +81,7 @@
         "type": [
           "Psychic"
         ],
+        "weaknessTypes": [],
         "height": "1.7 m",
         "weight": "60.8 kg"
       }
@@ -108,6 +113,7 @@
         "type": [
           "Grass"
         ],
+        "weaknessTypes": [],
         "height": "0.4 m",
         "weight": "10.2 kg"
       }
@@ -141,6 +147,7 @@
         "type": [
           "Grass"
         ],
+        "weaknessTypes": [],
         "height": "1.1 m",
         "weight": "97.0 kg"
       }
