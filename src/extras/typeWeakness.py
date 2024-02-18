@@ -1,45 +1,36 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from bs4 import BeautifulSoup
-import time
-import re
+type_chart = {
+    "bug": {"fighting": 0.5, "grass": 0.5, "ground": 0.5, "fire": 2, "flying": 2, "rock": 2},
+    "dark": {"dark": 0.5, "ghost": 0.5, "psychic": 0.5, "bug": 2, "fairy": 2, "fighting": 2},
+    "dragon": {"electric": 0.5, "fire": 0.5, "grass": 0.5, "water": 0.5, "dragon": 2, "fairy": 2, "ice": 2},
+    "electric": {"electric": 0.5, "flying": 0.5, "steel": 0.5, "ground": 2},
+    "fairy": {"bug": 0.5, "dark": 0.5, "dragon": 0.5, "fighting": 0.5, "poison": 2, "steel": 2},
+    "fighting": {"bug": 0.5, "dark": 0.5, "rock": 0.5, "fairy": 2, "flying": 2, "psychic": 2},
+    "fire": {"bug": 0.5, "fire": 0.5, "grass": 0.5, "ice": 0.5, "steel": 0.5, "ground": 2, "rock": 2, "water": 2},
+    "flying": {"bug": 0.5, "fighting": 0.5, "grass": 0.5, "ground": 0.5, "electric": 2, "ice": 2, "rock": 2},
+    "ghost": {"bug": 0.5, "fighting": 0.5, "normal": 0.5, "poison": 0.5, "dark": 2, "ghost": 2},
+    "grass": {"electric": 0.5, "grass": 0.5, "ground": 0.5, "water": 0.5, "bug": 2, "fire": 2, "flying": 2, "ice": 2, "poison": 2},
+    "ground": {"electric": 0.5, "poison": 0.5, "rock": 0.5, "grass": 2, "ice": 2, "water": 2},
+    "ice": {"ice": 0.5, "fighting": 2, "fire": 2, "rock": 2, "steel": 2},
+    "normal": {"ghost": 0.5, "fighting": 2},
+    "poison": {"fairy": 0.5, "fighting": 0.5, "grass": 0.5, "poison": 0.5, "bug": 0.5, "ground": 2, "psychic": 2},
+    "psychic": {"fighting": 0.5, "psychic": 0.5, "bug": 2, "dark": 2, "ghost": 2},
+    "rock": {"fire": 0.5, "flying": 0.5, "normal": 0.5, "poison": 0.5, "fighting": 2, "grass": 2, "ground": 2, "steel": 2, "water": 2},
+    "steel": {"bug": 0.5, "dragon": 0.5, "fairy": 0.5, "flying": 0.5, "grass": 0.5, "ice": 0.5, "poison": 0.5, "psychic": 0.5, "rock": 0.5, "steel": 0.5, "fighting": 2, "fire": 2, "ground": 2},
+    "water": {"fire": 0.5, "ice": 0.5, "steel": 0.5, "water": 0.5, "electric": 2, "grass": 2},
+}
 
 
-def getWeaknessTypes(type1, type2=None):
-    if type2 is None:
-        type2 = "none"
-    # URL of the website with two query strings
-    url = 'https://yashrajbharti.github.io/Pokemon-Type-Weakness-Calculator/?type1={}&type2={}'.format(
-        type1, type2)
+def getWeaknessTypes(type1, type2="none"):
+    weaknesses = set()
+    type1 = type1.lower()
+    type2 = type2.lower()
+    for t in [type1, type2]:
+        if t == "none":
+            continue
 
-    # Set up a headless Chrome browser using Selenium
-    options = Options()
-    options.add_argument('--headless')  # Run Chrome in headless mode (no GUI)
-    driver = webdriver.Chrome(options=options)
+        type_multipliers = type_chart.get(t, {})
+        for other_type, multiplier in type_multipliers.items():
+            if multiplier > 1:
+                weaknesses.add(other_type.capitalize())
 
-    # Load the page using the headless browser
-    driver.get(url)
-
-    # Introduce a delay (1 second in this example) to ensure the page is fully loaded
-    time.sleep(1)
-
-    # Get the page source after it's fully loaded
-    page_source = driver.page_source
-
-    # Close the headless browser
-    driver.quit()
-
-    # Parse the HTML content of the page
-    soup = BeautifulSoup(page_source, 'html.parser')
-
-    pattern = re.compile(r'\D*(\d+)\D*')
-
-    # Find all <li> elements in the HTML
-    li_elements = soup.find_all('li')
-
-    # Print the content of each <li> element
-    arr = []
-    for li in li_elements:
-        if (int(pattern.search(li.text).group(1)) >= 2):
-            arr.append(re.sub(r':.*', '', li.text.strip()))
-    return (arr)
+    return list(weaknesses)

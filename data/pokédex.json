@@ -16,7 +16,14 @@
           "Steel",
           "Psychic"
         ],
-        "weaknessTypes": [],
+        "weaknessTypes": [
+          "Ghost",
+          "Fire",
+          "Dark",
+          "Bug",
+          "Fighting",
+          "Ground"
+        ],
         "height": "0.3 m",
         "weight": "1.1 kg"
       }
@@ -51,7 +58,11 @@
         "type": [
           "Psychic"
         ],
-        "weaknessTypes": [],
+        "weaknessTypes": [
+          "Bug",
+          "Ghost",
+          "Dark"
+        ],
         "height": "1.7 m",
         "weight": "60.8 kg"
       },
@@ -61,7 +72,11 @@
         "type": [
           "Psychic"
         ],
-        "weaknessTypes": [],
+        "weaknessTypes": [
+          "Bug",
+          "Ghost",
+          "Dark"
+        ],
         "height": "1.7 m",
         "weight": "60.8 kg"
       },
@@ -71,7 +86,11 @@
         "type": [
           "Psychic"
         ],
-        "weaknessTypes": [],
+        "weaknessTypes": [
+          "Bug",
+          "Ghost",
+          "Dark"
+        ],
         "height": "1.7 m",
         "weight": "60.8 kg"
       },
@@ -81,7 +100,11 @@
         "type": [
           "Psychic"
         ],
-        "weaknessTypes": [],
+        "weaknessTypes": [
+          "Bug",
+          "Ghost",
+          "Dark"
+        ],
         "height": "1.7 m",
         "weight": "60.8 kg"
       }
@@ -113,7 +136,13 @@
         "type": [
           "Grass"
         ],
-        "weaknessTypes": [],
+        "weaknessTypes": [
+          "Poison",
+          "Fire",
+          "Bug",
+          "Flying",
+          "Ice"
+        ],
         "height": "0.4 m",
         "weight": "10.2 kg"
       }
@@ -147,7 +176,13 @@
         "type": [
           "Grass"
         ],
-        "weaknessTypes": [],
+        "weaknessTypes": [
+          "Poison",
+          "Fire",
+          "Bug",
+          "Flying",
+          "Ice"
+        ],
         "height": "1.1 m",
         "weight": "97.0 kg"
       }
