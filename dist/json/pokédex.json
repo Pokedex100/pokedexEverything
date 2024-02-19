@@ -1,6 +1,14 @@
 [
   {
     "id": "#0385",
+    "assets": {
+      "normal": [
+        "./assets/images/[HOME] Pokémon Renders/Normal/poke_capture_0385_000_uk_n_00000000_f_n.png"
+      ],
+      "shiny": [
+        "./assets/images/[HOME] Pokémon Renders/Shiny/poke_capture_0385_000_uk_n_00000000_f_r.png"
+      ]
+    },
     "name": {
       "english": "Jirachi",
       "japanese": "ジラーチ"
@@ -17,12 +25,12 @@
           "Psychic"
         ],
         "weaknessTypes": [
-          "Ghost",
-          "Fire",
-          "Dark",
-          "Bug",
           "Fighting",
-          "Ground"
+          "Ghost",
+          "Dark",
+          "Fire",
+          "Ground",
+          "Bug"
         ],
         "height": "0.3 m",
         "weight": "1.1 kg"
@@ -41,6 +49,20 @@
   },
   {
     "id": "#0386",
+    "assets": {
+      "normal": [
+        "./assets/images/[HOME] Pokémon Renders/Normal/poke_capture_0386_000_uk_n_00000000_f_n.png",
+        "./assets/images/[HOME] Pokémon Renders/Normal/poke_capture_0386_001_uk_n_00000000_f_n.png",
+        "./assets/images/[HOME] Pokémon Renders/Normal/poke_capture_0386_002_uk_n_00000000_f_n.png",
+        "./assets/images/[HOME] Pokémon Renders/Normal/poke_capture_0386_003_uk_n_00000000_f_n.png"
+      ],
+      "shiny": [
+        "./assets/images/[HOME] Pokémon Renders/Shiny/poke_capture_0386_000_uk_n_00000000_f_r.png",
+        "./assets/images/[HOME] Pokémon Renders/Shiny/poke_capture_0386_001_uk_n_00000000_f_r.png",
+        "./assets/images/[HOME] Pokémon Renders/Shiny/poke_capture_0386_002_uk_n_00000000_f_r.png",
+        "./assets/images/[HOME] Pokémon Renders/Shiny/poke_capture_0386_003_uk_n_00000000_f_r.png"
+      ]
+    },
     "name": {
       "english": "Deoxys",
       "japanese": "デオキシス"
@@ -59,9 +81,9 @@
           "Psychic"
         ],
         "weaknessTypes": [
+          "Dark",
           "Bug",
-          "Ghost",
-          "Dark"
+          "Ghost"
         ],
         "height": "1.7 m",
         "weight": "60.8 kg"
@@ -73,9 +95,9 @@
           "Psychic"
         ],
         "weaknessTypes": [
+          "Dark",
           "Bug",
-          "Ghost",
-          "Dark"
+          "Ghost"
         ],
         "height": "1.7 m",
         "weight": "60.8 kg"
@@ -87,9 +109,9 @@
           "Psychic"
         ],
         "weaknessTypes": [
+          "Dark",
           "Bug",
-          "Ghost",
-          "Dark"
+          "Ghost"
         ],
         "height": "1.7 m",
         "weight": "60.8 kg"
@@ -101,9 +123,9 @@
           "Psychic"
         ],
         "weaknessTypes": [
+          "Dark",
           "Bug",
-          "Ghost",
-          "Dark"
+          "Ghost"
         ],
         "height": "1.7 m",
         "weight": "60.8 kg"
@@ -122,6 +144,14 @@
   },
   {
     "id": "#0387",
+    "assets": {
+      "normal": [
+        "./assets/images/[HOME] Pokémon Renders/Normal/poke_capture_0387_000_mf_n_00000000_f_n.png"
+      ],
+      "shiny": [
+        "./assets/images/[HOME] Pokémon Renders/Shiny/poke_capture_0387_000_mf_n_00000000_f_r.png"
+      ]
+    },
     "name": {
       "english": "Turtwig",
       "japanese": "ナエトル"
@@ -137,11 +167,11 @@
           "Grass"
         ],
         "weaknessTypes": [
-          "Poison",
           "Fire",
-          "Bug",
+          "Ice",
+          "Poison",
           "Flying",
-          "Ice"
+          "Bug"
         ],
         "height": "0.4 m",
         "weight": "10.2 kg"
@@ -162,6 +192,14 @@
   },
   {
     "id": "#0388",
+    "assets": {
+      "normal": [
+        "./assets/images/[HOME] Pokémon Renders/Normal/poke_capture_0388_000_mf_n_00000000_f_n.png"
+      ],
+      "shiny": [
+        "./assets/images/[HOME] Pokémon Renders/Shiny/poke_capture_0388_000_mf_n_00000000_f_r.png"
+      ]
+    },
     "name": {
       "english": "Grotle",
       "japanese": "ハヤシガメ"
@@ -177,11 +215,11 @@
           "Grass"
         ],
         "weaknessTypes": [
-          "Poison",
           "Fire",
-          "Bug",
+          "Ice",
+          "Poison",
           "Flying",
-          "Ice"
+          "Bug"
         ],
         "height": "1.1 m",
         "weight": "97.0 kg"

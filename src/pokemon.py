@@ -4,6 +4,7 @@ import json
 import re
 import string
 from extras import typeWeakness
+from extras import imageAssets
 
 
 def scrape_pokemon_info(pokemon_url):
@@ -35,6 +36,10 @@ def scrape_pokemon_info(pokemon_url):
                     'a', {'title': 'List of Pokémon by National Pokédex number'})
                 if id_element:
                     pokemon_info['id'] = id_element.text.strip()
+                    normal_paths, shiny_paths = imageAssets.getImagePaths(
+                        pokemon_info['id'])
+                    pokemon_info['assets'] = {
+                        "normal": normal_paths, "shiny": shiny_paths}
 
                 # Extract other information based on the structure
                 name_element = table.find(
