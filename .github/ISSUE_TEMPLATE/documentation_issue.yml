@@ -1,5 +1,5 @@
-name: Design issue
-description: Suggest improvements/bugs in the design.
+name: Documentation issue
+description: Suggest improvements in the documentation.
 body:
   - type: textarea
     id: description
