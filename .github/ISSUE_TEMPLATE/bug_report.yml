@@ -2,7 +2,7 @@ name: Bug Report
 description: File a reproducible bug or regression.
 body:
   - type: dropdown
-    id: device
+    id: service
     attributes:
       label: Service
       description: The service where this bug exists.

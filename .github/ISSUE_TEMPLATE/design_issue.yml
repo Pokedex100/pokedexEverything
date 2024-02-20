@@ -2,7 +2,7 @@ name: Design issue
 description: Suggest improvements/bugs in the design.
 body:
   - type: dropdown
-    id: device
+    id: service
     attributes:
       label: Service
       description: The service where this design issue is for.

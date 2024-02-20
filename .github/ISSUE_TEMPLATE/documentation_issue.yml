@@ -1,21 +1,21 @@
-name: Design issue
-description: Suggest improvements/bugs in the design.
+name: Documentation issue
+description: Suggest improvements in the documentation.
 body:
   - type: textarea
-      id: description
-      attributes:
-        label: Description
-        description: Describe the documentation-related issue or improvement needed.
-        placeholder: A clear and concise description of what the problem/enhancement is.
-      validations:
-        required: true
+    id: description
+    attributes:
+      label: Description
+      description: Describe the documentation-related issue or improvement needed.
+      placeholder: A clear and concise description of what the problem/enhancement is.
+    validations:
+      required: true
   - type: textarea
-      id: currentdoc
-      attributes:
-        label: Current Documentation
-        description: Link to or describe the current documentation.
-      validations:
-        required: true
+    id: currentdoc
+    attributes:
+      label: Current Documentation
+      description: Link to or describe the current documentation.
+    validations:
+      required: true
   - type: textarea
     id: desireddoc
     attributes:
