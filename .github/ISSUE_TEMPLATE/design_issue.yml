@@ -1,0 +1,40 @@
+name: Design issue
+description: Suggest improvements/bugs in the design.
+body:
+  - type: dropdown
+    id: device
+    attributes:
+      label: Service
+      description: The service where this design issue is for.
+      multiple: true
+      options:
+        - API
+        - Website
+  - type: textarea
+    id: currentbehavior
+    attributes:
+      label: Current Behavior
+      description: Describe the current state/behavior of the design.
+    validations:
+      required: true
+  - type: textarea
+    id: desiredbehavior
+    attributes:
+      label: Desired Behavior
+      description: Describe the desired state/behavior of the design.
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain your design.
+    validations:
+      required: false
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Add any other context about the design issue here.
+    validations:
+      required: false
