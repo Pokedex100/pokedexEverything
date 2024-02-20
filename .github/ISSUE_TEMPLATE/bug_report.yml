@@ -13,7 +13,7 @@ body:
     validations:
       required: true
   - type: textarea
-    id: desc
+    id: description
     attributes:
       label: Description
       description: A clear and concise description of what the bug is and what did you expect.
