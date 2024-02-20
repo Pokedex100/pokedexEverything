@@ -2,7 +2,7 @@ name: Feature request
 description: Suggest an idea for the project.
 body:
   - type: dropdown
-    id: device
+    id: service
     attributes:
       label: Service
       description: The service for which this feature is.

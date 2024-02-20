@@ -2,7 +2,7 @@ name: Bug Report
 description: File a reproducible bug or regression.
 body:
   - type: dropdown
-    id: device
+    id: service
     attributes:
       label: Service
       description: The service where this bug exists.
@@ -13,7 +13,7 @@ body:
     validations:
       required: true
   - type: textarea
-    id: description
+    id: desc
     attributes:
       label: Description
       description: A clear and concise description of what the bug is and what did you expect.

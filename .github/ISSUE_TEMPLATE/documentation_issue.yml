@@ -2,7 +2,7 @@ name: Design issue
 description: Suggest improvements/bugs in the design.
 body:
   - type: textarea
-      id: description
+      id: desc
       attributes:
         label: Description
         description: Describe the documentation-related issue or improvement needed.
