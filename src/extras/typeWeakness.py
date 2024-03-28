@@ -5,7 +5,7 @@ type_chart = {
     "electric": {"electric": 0.5, "flying": 0.5, "steel": 0.5, "ground": 2},
     "fairy": {"bug": 0.5, "dark": 0.5, "dragon": 0.5, "fighting": 0.5, "poison": 2, "steel": 2},
     "fighting": {"bug": 0.5, "dark": 0.5, "rock": 0.5, "fairy": 2, "flying": 2, "psychic": 2},
-    "fire": {"bug": 0.5, "fire": 0.5, "grass": 0.5, "ice": 0.5, "steel": 0.5, "ground": 2, "rock": 2, "water": 2},
+    "fire": {"bug": 0.5, "fire": 0.5, "fairy": 0.5, "grass": 0.5, "ice": 0.5, "steel": 0.5, "ground": 2, "rock": 2, "water": 2},
     "flying": {"bug": 0.5, "fighting": 0.5, "grass": 0.5, "ground": 0.5, "electric": 2, "ice": 2, "rock": 2},
     "ghost": {"bug": 0.5, "fighting": 0.5, "normal": 0.5, "poison": 0.5, "dark": 2, "ghost": 2},
     "grass": {"electric": 0.5, "grass": 0.5, "ground": 0.5, "water": 0.5, "bug": 2, "fire": 2, "flying": 2, "ice": 2, "poison": 2},
