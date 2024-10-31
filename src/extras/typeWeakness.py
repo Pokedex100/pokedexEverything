@@ -20,7 +20,7 @@ type_chart = {
 }
 
 
-def getWeaknessTypes(type1, type2="none"):
+def getWeaknessTypes(type1="normal", type2="none"):
     weaknesses = set()
     type1 = type1.lower()
     type2 = type2.lower()
