@@ -29,3 +29,4 @@ npm run server
 - [ ] Create github labels, issues, templates
 
 - [ ] Check the JSON data well, then put all the python files in an archive folder. Then make basic cards using data from JSON.
+- [ ] Design and develop frontend cards for pokemons
