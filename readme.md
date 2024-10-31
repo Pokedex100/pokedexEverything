@@ -27,3 +27,5 @@ npm run server
 - [ ] forms, types, stats, hp, atk, def, height, weight, IMAGES
 - [ ] https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
 - [ ] Create github labels, issues, templates
+
+- [ ] Check the JSON data well, then put all the python files in an archive folder. Then make basic cards using data from JSON.
