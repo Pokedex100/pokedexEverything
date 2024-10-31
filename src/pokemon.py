@@ -274,7 +274,7 @@ def capitalize_after_hyphen(s):
 
 
 # Loop through the Pokémon names
-for pokemon_name in pokemon_names[384:388]:
+for pokemon_name in pokemon_names[0:1025]:
     pokemon_name = string.capwords(pokemon_name)
     pokemon_name = capitalize_after_hyphen(pokemon_name)
     pokemon_name = pokemon_name.replace(' ', '_')
