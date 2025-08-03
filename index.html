@@ -7,6 +7,7 @@
     <title>Pokédex JSON Viewer</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" type="image/png" href="./logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
 </head>
 
 <body>
@@ -16,8 +17,9 @@
             <h1>Pokédex JSON Viewer</h1>
         </div>
         <input type="text" id="pokemonInput" placeholder="Enter Pokémon ID (e.g., #25 or 25)" />
-        <pre id="jsonOutput"></pre>
+        <pre><code id="jsonOutput" class="language-json"></code></pre>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="./script.js"></script>
 </body>
 

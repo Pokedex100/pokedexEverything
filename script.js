@@ -22,6 +22,7 @@ async function handleInput() {
 
   if (!input) {
     jsonOutput.textContent = "";
+    jsonOutput.className = "";
     return;
   }
 
@@ -31,9 +32,11 @@ async function handleInput() {
       displayJSON(pokemon);
     } else {
       jsonOutput.textContent = `Error: Pokémon ${input} not found`;
+      jsonOutput.className = "error";
     }
   } catch (error) {
     jsonOutput.textContent = `Error: Failed to load data - ${error.message}`;
+    jsonOutput.className = "error";
   }
 }
 
@@ -61,5 +64,14 @@ async function getPokemonData(input) {
 
 function displayJSON(pokemon) {
   const formatted = JSON.stringify(pokemon, null, 2);
+
+  // Clear previous highlighting
+  jsonOutput.className = "";
+  jsonOutput.removeAttribute("data-highlighted");
+  jsonOutput.innerHTML = "";
+
+  // Set new content and highlight
   jsonOutput.textContent = formatted;
+  jsonOutput.className = "language-json";
+  hljs.highlightElement(jsonOutput);
 }
