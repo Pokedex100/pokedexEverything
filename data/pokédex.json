@@ -37843,8 +37843,8 @@
           "Fire",
           "Ghost"
         ],
-        "height": "",
-        "weight": ""
+        "height": "0.8 m",
+        "weight": "15.0 kg"
       }
     ],
     "species": "Pumpkin Pokémon",
@@ -37901,8 +37901,8 @@
           "Fire",
           "Ghost"
         ],
-        "height": "",
-        "weight": ""
+        "height": "1.7 m",
+        "weight": "39.0 kg"
       }
     ],
     "species": "Pumpkin Pokémon",
@@ -46878,8 +46878,8 @@
           "Fighting",
           "Bug"
         ],
-        "height": "",
-        "weight": ""
+        "height": "0.9 m",
+        "weight": "28.0 kg"
       }
     ],
     "species": "Emotion Pokémon",
@@ -49064,8 +49064,8 @@
         "weaknessTypes": [
           "Fighting"
         ],
-        "height": "",
-        "weight": ""
+        "height": "1.0 m",
+        "weight": "120.0 kg"
       }
     ],
     "species": "Hog Pokémon",

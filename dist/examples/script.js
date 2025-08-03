@@ -1,36 +1,65 @@
-const apiUrl = "http://localhost:3000/api/pokedex";
+const dataUrl = "../../data.json";
 
-// Function to fetch Pokémon data
-async function getPokemonData(pokemonName) {
+const pokemonInput = document.getElementById("pokemonInput");
+const jsonOutput = document.getElementById("jsonOutput");
+
+// Event listeners
+pokemonInput.addEventListener("input", handleInput);
+pokemonInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    handleInput();
+  }
+});
+
+// Load Pikachu by default
+window.addEventListener("load", () => {
+  pokemonInput.value = "#25";
+  handleInput();
+});
+
+async function handleInput() {
+  const input = pokemonInput.value.trim();
+
+  if (!input) {
+    jsonOutput.textContent = "";
+    return;
+  }
+
   try {
-    // Fetch data from the API
-    const response = await fetch(apiUrl);
-
-    // Check if the response is successful (status code 200)
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    // Parse the JSON response
-    const data = await response.json();
-
-    // Find the Pokémon data by name
-    const pokemon = data.find(
-      (p) => p.name.english.toLowerCase() === pokemonName.toLowerCase()
-    );
-
+    const pokemon = await getPokemonData(input);
     if (pokemon) {
-      console.log(`ID: ${pokemon.id}`);
-      console.log(`Name (English): ${pokemon.name.english}`);
-      console.log(`Name (Japanese): ${pokemon.name.japanese}`);
-      console.log(`Description: ${pokemon.description}`);
+      displayJSON(pokemon);
     } else {
-      console.log(`Pokemon with name "${pokemonName}" not found.`);
+      jsonOutput.textContent = `Error: Pokémon ${input} not found`;
     }
   } catch (error) {
-    console.error("Error fetching data:", error.message);
+    jsonOutput.textContent = `Error: Failed to load data - ${error.message}`;
   }
 }
 
-// Example: Get data for Pikachu
-getPokemonData("pikachu");
+async function getPokemonData(input) {
+  const response = await fetch(dataUrl);
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status}`);
+  }
+
+  const data = await response.json();
+
+  // Handle different input formats
+  let id;
+  if (input.startsWith("#")) {
+    // Handle ID input like #25
+    id = input.substring(1);
+  } else {
+    // Handle numeric input like 25
+    id = input;
+  }
+
+  const paddedId = id.padStart(4, "0");
+  return data.find((p) => p.id.substring(1) === paddedId);
+}
+
+function displayJSON(pokemon) {
+  const formatted = JSON.stringify(pokemon, null, 2);
+  jsonOutput.textContent = formatted;
+}
