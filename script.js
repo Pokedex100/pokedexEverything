@@ -2,6 +2,7 @@ const dataUrl = "./data.json";
 
 const pokemonInput = document.getElementById("pokemonInput");
 const jsonOutput = document.getElementById("jsonOutput");
+const pokemonImage = document.getElementById("pokemonImage");
 
 // Event listeners
 pokemonInput.addEventListener("input", handleInput);
@@ -23,6 +24,7 @@ async function handleInput() {
   if (!input) {
     jsonOutput.textContent = "";
     jsonOutput.className = "";
+    pokemonImage.style.display = "none";
     return;
   }
 
@@ -33,10 +35,12 @@ async function handleInput() {
     } else {
       jsonOutput.textContent = `Error: Pokémon ${input} not found`;
       jsonOutput.className = "error";
+      pokemonImage.style.display = "none";
     }
   } catch (error) {
     jsonOutput.textContent = `Error: Failed to load data - ${error.message}`;
     jsonOutput.className = "error";
+    pokemonImage.style.display = "none";
   }
 }
 
@@ -74,4 +78,17 @@ function displayJSON(pokemon) {
   jsonOutput.textContent = formatted;
   jsonOutput.className = "language-json";
   hljs.highlightElement(jsonOutput);
+
+  // Show Pokemon image from PokéDB with fallback
+  const pokemonId = parseInt(pokemon.id.substring(1));
+  const pokemonName = pokemon.name.english
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, "");
+
+  pokemonImage.src = `https://img.pokemondb.net/sprites/home/normal/${pokemonName}.png`;
+  pokemonImage.onerror = () => {
+    // Fallback to PokeAPI official artwork
+    pokemonImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`;
+  };
+  pokemonImage.style.display = "block";
 }

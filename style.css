@@ -56,6 +56,7 @@ body {
 }
 
 .container {
+  position: relative;
   max-inline-size: var(--container-max-width);
   margin: 0 auto;
 }
@@ -99,6 +100,21 @@ h1 {
 
 #pokemonInput::placeholder {
   color: var(--text-muted);
+}
+
+#pokemonImage {
+  position: absolute;
+  inset-block-end: 40px;
+  inset-inline-start: 100%;
+  translate: -100% 0;
+  max-inline-size: 200px;
+  max-block-size: 200px;
+  margin: var(--spacing-md) auto;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background: var(--bg-secondary);
+  padding: var(--spacing-sm);
+  border: 1px solid var(--border-primary);
 }
 
 #jsonOutput {
