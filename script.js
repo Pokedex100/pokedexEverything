@@ -1,4 +1,4 @@
-const dataUrl = "../../data.json";
+const dataUrl = "./data.json";
 
 const pokemonInput = document.getElementById("pokemonInput");
 const jsonOutput = document.getElementById("jsonOutput");
