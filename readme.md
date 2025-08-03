@@ -122,12 +122,12 @@ GET /api/search?q=pika             // String search
 
 ## Development Status
 
-### Data Completeness ✅
+### Data Completeness
 
 - **Pokémon Count**: 1,025 (Complete through Pecharunt #1025)
-- **Basic Info**: ✅ Names, types, forms, height, weight, abilities
-- **Type Weaknesses**: ✅ Calculated automatically
-- **Images**: ✅ Normal and shiny sprite paths
+- **Basic Info**: Names, types, forms, height, weight, abilities
+- **Type Weaknesses**: Calculated automatically
+- **Images**: Normal and shiny sprite paths
 
 ### Optional Enhancements 🔮
 
@@ -137,7 +137,7 @@ The core dataset is complete! These are optional additions for future versions:
 - **Move Data**: Learnable moves and movesets  
 - **Habitat Data**: Location/habitat information
 
-### Project Status ✅
+### Project Status
 
 **✅ COMPLETE:**
 
@@ -154,7 +154,7 @@ The project is production-ready! Just download and use the JSON data or run the 
 
 ## 🚀 Quick Start
 
-### Option 1: Use the JSON Data Directly 📊
+### Option 1: Use the JSON Data Directly
 
 ```bash
 # The complete Pokemon dataset is in:
